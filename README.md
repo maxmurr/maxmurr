@@ -18,4 +18,4 @@ Following from this, I spent 4 years studying Computer Science at [Kasetsart Uni
 
 For a fast response, please DM me on X: [@maxmurrwtf](https://x.com/direct_messages/create/maxmurrwtf)
 
-Any other queries you can contact me via [LinkedIn](https://www.linkedin.com/in/maxmurr/) or via my website: [nuro.dev](https://maxmurr.com/)
+Any other queries you can contact me via [LinkedIn](https://www.linkedin.com/in/maxmurr/) or via my website: [maxmurr.com](https://maxmurr.com/)
