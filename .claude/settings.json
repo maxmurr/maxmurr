@@ -1,0 +1,71 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(ls:*)",
+			"Bash(cat:*)",
+			"Bash(grep:*)",
+			"Bash(rg:*)",
+			"Bash(cp:*)",
+			"Bash(find:*)",
+			"Bash(pwd:*)",
+			"Bash(echo:*)",
+			"Bash(whoami:*)",
+			"Bash(source:*)",
+			"Bash(sed:*)",
+			"Bash(head:*)",
+			"Bash(tail:*)",
+			"Bash(mkdir:*)",
+			"Bash(mv:*)",
+			"Bash(touch:*)",
+			"Bash(cd:*)",
+			"Bash(tree:*)",
+			"Bash(type:*)",
+			"Bash(which:*)",
+			"Bash(git:*)",
+			"Bash(bun:*)",
+			"Bash(npm:*)"
+		],
+		"deny": [
+			"Bash(git push:*)",
+			"Bash(git reset:*)",
+			"Bash(git clean:*)",
+			"Bash(git checkout .:*)",
+			"Bash(git rebase:*)",
+			"Bash(git stash:*)",
+			"Bash(npm publish:*)",
+			"Bash(bun publish:*)"
+		]
+	},
+	"hooks": {
+		"UserPromptSubmit": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "$CLAUDE_PROJECT_DIR/.claude/hooks/skill-activation-prompt.sh"
+					}
+				]
+			}
+		],
+		"PostToolUse": [
+			{
+				"matcher": "Edit|MultiEdit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bun run format || true"
+					}
+				]
+			},
+			{
+				"matcher": "Edit|MultiEdit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "$CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use-tracker.sh"
+					}
+				]
+			}
+		]
+	}
+}

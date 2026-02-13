@@ -1,0 +1,52 @@
+{
+	"version": "1.0",
+	"skills": {
+		"generating-commit-messages": {
+			"type": "domain",
+			"enforcement": "suggest",
+			"priority": "critical",
+			"promptTriggers": {
+				"keywords": ["commit", "git commit"]
+			}
+		},
+		"frontend-design": {
+			"type": "domain",
+			"enforcement": "suggest",
+			"priority": "high",
+			"promptTriggers": {
+				"keywords": [
+					"build a component",
+					"create a page",
+					"build a page",
+					"create a ui",
+					"build a ui",
+					"design a component",
+					"create a frontend",
+					"build a frontend",
+					"build a webapp",
+					"create a webapp",
+					"build an interface",
+					"create an interface",
+					"design user experience",
+					"design user interface"
+				]
+			}
+		},
+		"skill-creator": {
+			"type": "domain",
+			"enforcement": "suggest",
+			"priority": "high",
+			"promptTriggers": {
+				"keywords": [
+					"create a skill",
+					"create skill",
+					"new skill",
+					"build a skill",
+					"update skill",
+					"edit skill",
+					"modify skill"
+				]
+			}
+		}
+	}
+}
