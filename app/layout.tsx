@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 
+import { Analytics } from "@vercel/analytics/react"
+
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { SITE_CONFIG } from "@/config/site"
 
@@ -73,6 +75,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
