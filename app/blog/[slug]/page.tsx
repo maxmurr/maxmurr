@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 
 import { ArrowLeft } from "lucide-react";
 
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import { SITE_CONFIG } from "@/config/site";
 import { formatPostDate, getAllPosts, getPostBySlug } from "@/lib/blog";
 
@@ -49,32 +47,28 @@ export default async function BlogPostPage({
 	if (!post) notFound();
 
 	return (
-		<>
-			<Header />
-			<main className="mx-auto max-w-2xl px-6 py-16">
-				<Link
-					href="/blog"
-					className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 ease-out hover:text-foreground"
-				>
-					<ArrowLeft className="size-3.5" />
-					Back to blog
-				</Link>
+		<main className="mx-auto max-w-2xl px-6 py-16">
+			<Link
+				href="/blog"
+				className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 ease-out hover:text-foreground"
+			>
+				<ArrowLeft className="size-3.5" />
+				Back to blog
+			</Link>
 
-				<article className="mt-8">
-					<time dateTime={post.date} className="text-sm text-muted-foreground">
-						{formatPostDate(post.date)}
-					</time>
-					<h1 className="mt-2 text-3xl font-bold tracking-tight">
-						{post.title}
-					</h1>
+			<article className="mt-8">
+				<time dateTime={post.date} className="text-sm text-muted-foreground">
+					{formatPostDate(post.date)}
+				</time>
+				<h1 className="mt-2 text-3xl font-bold tracking-tight">
+					{post.title}
+				</h1>
 
-					<div
-						className="prose mt-8"
-						dangerouslySetInnerHTML={{ __html: post.content }}
-					/>
-				</article>
-			</main>
-			<Footer />
-		</>
+				<div
+					className="prose mt-8"
+					dangerouslySetInnerHTML={{ __html: post.content }}
+				/>
+			</article>
+		</main>
 	);
 }

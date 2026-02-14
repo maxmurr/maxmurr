@@ -1,11 +1,15 @@
 import { ImageResponse } from "next/og"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 86400
 export const alt = "Max Murray | Software Engineer"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
-export default function OgImage() {
+export default async function OgImage() {
+  const imageData = await fetch("https://github.com/maxmurr.png?size=120", {
+    next: { revalidate: 86400 },
+  }).then((res) => res.arrayBuffer())
+
   return new ImageResponse(
     (
       <div
@@ -29,7 +33,7 @@ export default function OgImage() {
           }}
         >
           <img
-            src="https://github.com/maxmurr.png?size=120"
+            src={imageData as unknown as string}
             alt=""
             width={120}
             height={120}

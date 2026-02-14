@@ -1,10 +1,14 @@
 import { ImageResponse } from "next/og";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 86400;
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-export default function Icon() {
+export default async function Icon() {
+  const imageData = await fetch("https://github.com/maxmurr.png?size=32", {
+    next: { revalidate: 86400 },
+  }).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -17,7 +21,7 @@ export default function Icon() {
         }}
       >
         <img
-          src="https://github.com/maxmurr.png?size=32"
+          src={imageData as unknown as string}
           alt=""
           width={32}
           height={32}

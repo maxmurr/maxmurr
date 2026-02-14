@@ -1,17 +1,41 @@
 "use client"
 
+import Link from "next/link"
 import { Menu, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
+import type { NavItem } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { SITE_CONFIG } from "@/config/site"
+
+const NAV_LINK_BASE =
+  "rounded-md px-3 text-sm text-muted-foreground transition-colors duration-150 ease-out hover:text-foreground"
+
+const NavLink = ({ item, className }: { item: NavItem; className?: string }) => {
+  const cn = `${NAV_LINK_BASE} ${className ?? ""}`
+
+  if (item.href.startsWith("/")) {
+    return (
+      <Link href={item.href} className={cn}>
+        {item.label}
+      </Link>
+    )
+  }
+
+  return (
+    <a href={item.href} className={cn}>
+      {item.label}
+    </a>
+  )
+}
 
 const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme()
@@ -35,13 +59,7 @@ export const Header = () => {
       <div className="mx-auto flex h-14 max-w-2xl items-center justify-between px-6">
         <nav className="hidden items-center gap-1 md:flex">
           {SITE_CONFIG.navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors duration-150 ease-out hover:text-foreground"
-            >
-              {item.label}
-            </a>
+            <NavLink key={item.href} item={item} className="py-1.5" />
           ))}
         </nav>
 
@@ -58,13 +76,9 @@ export const Header = () => {
               </SheetHeader>
               <nav className="flex flex-col gap-1 px-4">
                 {SITE_CONFIG.navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors duration-150 ease-out hover:text-foreground"
-                  >
-                    {item.label}
-                  </a>
+                  <SheetClose key={item.href} asChild>
+                    <NavLink item={item} className="py-2" />
+                  </SheetClose>
                 ))}
               </nav>
             </SheetContent>
