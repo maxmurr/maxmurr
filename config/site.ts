@@ -63,6 +63,7 @@ export const SITE_CONFIG: SiteConfig = {
     { label: "Home", href: "/" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
+    { label: "Blog", href: "/blog" },
   ],
 
   projects: [

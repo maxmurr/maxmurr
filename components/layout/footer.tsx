@@ -1,9 +1,10 @@
-"use client"
+import { Suspense } from "react"
 
 import type { LucideProps } from "lucide-react"
 import { Github, Linkedin } from "lucide-react"
 
 import { SITE_CONFIG } from "@/config/site"
+import { CopyrightYear } from "@/components/layout/copyright-year"
 
 const XIcon = (props: LucideProps) => (
   <svg
@@ -46,7 +47,11 @@ export const Footer = () => {
           })}
         </div>
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} {SITE_CONFIG.name}
+          &copy;{" "}
+          <Suspense fallback="2026">
+            <CopyrightYear />
+          </Suspense>{" "}
+          {SITE_CONFIG.name}
         </p>
       </div>
     </footer>
