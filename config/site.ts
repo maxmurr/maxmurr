@@ -44,7 +44,7 @@ export const SITE_CONFIG: SiteConfig = {
   name: "Max Murray",
   url: "https://maxmurr.com",
   headline: "Software Engineer",
-  bio: "I build fast, maintainable web applications with React, TypeScript, and modern web architecture. Focused on high-quality standards and test-driven development. Always learning new technologies to solve real-world problems.",
+  bio: "Building fast, maintainable web applications with React, TypeScript, and modern web architecture. Focused on high-quality standards and test-driven development.",
   location: "Bangkok, Thailand",
   email: "maxmurr.m@gmail.com",
   github: "maxmurr",
@@ -56,6 +56,7 @@ export const SITE_CONFIG: SiteConfig = {
       url: "https://linkedin.com/in/maxmurr",
       icon: "linkedin",
     },
+    { platform: "X", url: "https://x.com/maxmurr__", icon: "x" },
   ],
 
   navItems: [

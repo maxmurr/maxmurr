@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
 import { Header } from "@/components/layout/header"
@@ -8,8 +9,28 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { SITE_CONFIG } from "@/config/site"
 
+const truncateAtWord = (text: string, max: number): string => {
+  if (text.length <= max) return text
+  const lastSpace = text.lastIndexOf(" ", max)
+  return lastSpace > 0 ? text.slice(0, lastSpace) : text.slice(0, max)
+}
 
-export default function Home() {
+const getGitHubRepoCount = async (): Promise<number | null> => {
+  try {
+    const res = await fetch(`https://api.github.com/users/${SITE_CONFIG.github}`, {
+      next: { revalidate: 86400 },
+    })
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.public_repos ?? null
+  } catch {
+    return null
+  }
+}
+
+export default async function Home() {
+  const repoCount = await getGitHubRepoCount()
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -22,9 +43,17 @@ export default function Home() {
         "@type": "Person",
         name: SITE_CONFIG.name,
         url: SITE_CONFIG.url,
+        image: `https://github.com/${SITE_CONFIG.github}.png?size=400`,
         jobTitle: SITE_CONFIG.headline,
         email: SITE_CONFIG.email,
         address: { "@type": "PostalAddress", addressLocality: SITE_CONFIG.location },
+        ...(SITE_CONFIG.experience[0]?.companyUrl && {
+          worksFor: {
+            "@type": "Organization",
+            name: SITE_CONFIG.experience[0].company,
+            url: SITE_CONFIG.experience[0].companyUrl,
+          },
+        }),
         sameAs: SITE_CONFIG.socialLinks.map((link) => link.url),
         knowsAbout: SITE_CONFIG.skills,
       },
@@ -41,8 +70,11 @@ export default function Home() {
       <main className="mx-auto max-w-2xl px-6 py-16 space-y-16">
         <section>
           <h1 className="text-2xl font-semibold tracking-tight">
-            hey, I&apos;m {SITE_CONFIG.name.split(" ")[0]} 👋
+            {SITE_CONFIG.name} 👋
           </h1>
+          <p className="mt-1 text-muted-foreground">
+            {SITE_CONFIG.headline} in {SITE_CONFIG.location}
+          </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             {SITE_CONFIG.bio}
           </p>
@@ -65,17 +97,20 @@ export default function Home() {
           <Card className="transition-colors duration-150 ease hover:bg-accent/50 active:scale-[0.98]">
             <CardContent className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img
+                <Image
                   src={`https://github.com/${SITE_CONFIG.github}.png?size=80`}
-                  alt={SITE_CONFIG.name}
+                  alt={`${SITE_CONFIG.name} profile photo`}
+                  width={40}
+                  height={40}
                   className="size-10 rounded-full"
-                  loading="lazy"
                 />
                 <div>
                   <p className="text-sm font-medium">
                     @{SITE_CONFIG.github}
                   </p>
-                  <p className="text-xs text-muted-foreground">GitHub</p>
+                  <p className="text-xs text-muted-foreground">
+                    GitHub{repoCount !== null && ` · ${repoCount} repos`}
+                  </p>
                 </div>
               </div>
               <ArrowUpRight className="size-4 text-muted-foreground transition-transform duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -83,7 +118,7 @@ export default function Home() {
           </Card>
         </a>
 
-        <section id="projects">
+        <section id="projects" className="scroll-mt-20">
           <h2 className="text-lg font-semibold tracking-tight">Projects</h2>
           <div className="mt-4 flex flex-wrap gap-3">
             {SITE_CONFIG.projects.map((project) => (
@@ -101,12 +136,13 @@ export default function Home() {
                     className={`h-full overflow-hidden transition-colors duration-150 ease hover:bg-accent/50 active:scale-[0.98]${project.image ? " pt-0" : ""}`}
                   >
                     {project.image && (
-                      <div className="aspect-video border-b">
-                        <img
+                      <div className="relative aspect-video border-b">
+                        <Image
                           src={project.image}
-                          alt={`${project.title} preview`}
-                          className="size-full object-cover"
-                          loading="lazy"
+                          alt={`${project.title} — ${truncateAtWord(project.description, 80)}`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          className="object-cover"
                         />
                       </div>
                     )}
@@ -137,7 +173,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience">
+        <section id="experience" className="scroll-mt-20">
           <h2 className="text-lg font-semibold tracking-tight">Experience</h2>
           <div className="mt-4 space-y-6">
             {SITE_CONFIG.experience.map((exp) => (

@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.headline}`,
+    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.headline} | React & TypeScript`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.bio,
@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@maxmurr__",
+    creator: "@maxmurr__",
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.headline}`,
     description: SITE_CONFIG.bio,
   },
