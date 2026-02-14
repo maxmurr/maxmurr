@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { CopyEmail } from "@/components/copy-email"
 import { SITE_CONFIG } from "@/config/site"
 
 const truncateAtWord = (text: string, max: number): string => {
@@ -139,7 +140,7 @@ export default async function Home() {
                       <div className="relative aspect-video border-b">
                         <Image
                           src={project.image}
-                          alt={`${project.title} — ${truncateAtWord(project.description, 80)}`}
+                          alt={`${project.title} - ${truncateAtWord(project.description, 80)}`}
                           fill
                           sizes="(max-width: 640px) 100vw, 50vw"
                           className="object-cover"
@@ -221,13 +222,7 @@ export default async function Home() {
 
         <section>
           <p className="text-sm text-muted-foreground">
-            Get in touch &mdash;{" "}
-            <a
-              href={`mailto:${SITE_CONFIG.email}`}
-              className="text-foreground underline decoration-muted-foreground/40 underline-offset-2 transition-colors duration-150 ease-out hover:decoration-foreground"
-            >
-              {SITE_CONFIG.email}
-            </a>
+            Get in touch, <CopyEmail />
           </p>
         </section>
       </main>

@@ -131,7 +131,7 @@ export const SITE_CONFIG: SiteConfig = {
       title: "Mid-level Software Engineer",
       company: "Innovative Extremist",
       companyUrl: "https://inox.co.th",
-      period: "Jan 2025 — Present",
+      period: "Jan 2025 – Present",
       description:
         "Built the Local Election '68 results site for Thai PBS with Next.js, handling 200,000+ peak visitors with live newsroom support. Designed an AI chat app connecting enterprise databases using open-source models, generating new business leads.",
     },
@@ -139,7 +139,7 @@ export const SITE_CONFIG: SiteConfig = {
       title: "Junior Software Engineer",
       company: "Innovative Extremist",
       companyUrl: "https://inox.co.th",
-      period: "May 2024 — Dec 2024",
+      period: "May 2024 – Dec 2024",
       description:
         "Built byteark-player-angular, a video player library using Video.js for ByteArk, expanding partner compatibility. Developed the Playboard UI with Next.js, adding custom domain support for faster customer deployments.",
     },
@@ -147,14 +147,14 @@ export const SITE_CONFIG: SiteConfig = {
       title: "Software Engineer Contractor",
       company: "Innovative Extremist",
       companyUrl: "https://inox.co.th",
-      period: "Oct 2023 — Apr 2024",
+      period: "Oct 2023 – Apr 2024",
       description:
         "Built reusable components for the Property Perfect real-estate platform. Reduced bundle size by 30% migrating from Redux to Zustand, added route-level lazy loading, and optimized LCP with image preloading.",
     },
     {
       title: "Freelance Software Engineer",
       company: "Self-employed",
-      period: "Jul 2023 — Dec 2023",
+      period: "Jul 2023 – Dec 2023",
       description:
         "Designed and launched a hotel PMS for Mixay Paradise in Laos, cutting monthly accounting time by 80%. Built an internal design system with Tailwind CSS and Radix UI, and set up data models and APIs with Prisma and Next.js.",
     },
