@@ -38,7 +38,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.platform}
-                className="text-muted-foreground transition-[color,transform] duration-150 ease hover:scale-110 hover:text-foreground active:scale-95"
+                className="text-muted-foreground transition-[color,transform] duration-150 ease-out will-change-transform hover:scale-105 hover:text-foreground active:scale-[0.97]"
               >
                 {Icon && <Icon className="size-5" />}
               </a>

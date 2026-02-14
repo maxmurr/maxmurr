@@ -14,7 +14,7 @@ export default function GlobalError({
           <p className="mt-2 text-muted-foreground">Something went wrong.</p>
           <button
             onClick={() => reset()}
-            className="mt-6 text-sm text-muted-foreground underline decoration-muted-foreground/40 underline-offset-2 hover:text-foreground"
+            className="mt-6 text-sm text-muted-foreground underline decoration-muted-foreground/40 underline-offset-2 transition-colors duration-150 ease-out hover:text-foreground"
           >
             Try again
           </button>

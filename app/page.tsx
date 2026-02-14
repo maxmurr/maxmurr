@@ -81,7 +81,7 @@ export default async function Home() {
           <p className="mt-2 text-sm text-muted-foreground">
             <a
               href="/resume.pdf"
-              className="text-foreground underline decoration-muted-foreground/40 underline-offset-2 hover:decoration-foreground"
+              className="text-foreground underline decoration-muted-foreground/40 underline-offset-2 transition-colors duration-150 ease-out hover:decoration-foreground"
             >
               Download resume
             </a>
@@ -94,7 +94,7 @@ export default async function Home() {
           rel="noopener noreferrer"
           className="group block"
         >
-          <Card className="transition-colors duration-150 ease hover:bg-accent/50 active:scale-[0.98]">
+          <Card className="transition-colors duration-150 ease-out will-change-transform hover:bg-accent/50 active:scale-[0.97]">
             <CardContent className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Image
@@ -133,7 +133,7 @@ export default async function Home() {
                   className="group block h-full"
                 >
                   <Card
-                    className={`h-full overflow-hidden transition-colors duration-150 ease hover:bg-accent/50 active:scale-[0.98]${project.image ? " pt-0" : ""}`}
+                    className={`h-full overflow-hidden transition-colors duration-150 ease-out will-change-transform hover:bg-accent/50 active:scale-[0.97]${project.image ? " pt-0" : ""}`}
                   >
                     {project.image && (
                       <div className="relative aspect-video border-b">
@@ -189,7 +189,7 @@ export default async function Home() {
                     href={exp.companyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-muted-foreground underline decoration-muted-foreground/40 underline-offset-2 hover:text-foreground"
+                    className="text-xs text-muted-foreground underline decoration-muted-foreground/40 underline-offset-2 transition-colors duration-150 ease-out hover:text-foreground"
                   >
                     {exp.company}
                   </a>
@@ -224,7 +224,7 @@ export default async function Home() {
             Get in touch &mdash;{" "}
             <a
               href={`mailto:${SITE_CONFIG.email}`}
-              className="text-foreground underline decoration-muted-foreground/40 underline-offset-2 hover:decoration-foreground"
+              className="text-foreground underline decoration-muted-foreground/40 underline-offset-2 transition-colors duration-150 ease-out hover:decoration-foreground"
             >
               {SITE_CONFIG.email}
             </a>
