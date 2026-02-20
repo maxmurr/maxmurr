@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: SITE_CONFIG.url,
+    canonical: "/",
   },
 }
 
