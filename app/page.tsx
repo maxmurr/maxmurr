@@ -122,56 +122,65 @@ export default async function Home() {
         <section id="projects" className="scroll-mt-20">
           <h2 className="text-lg font-semibold tracking-tight">Projects</h2>
           <div className="mt-4 flex flex-wrap gap-3">
-            {SITE_CONFIG.projects.map((project) => (
-              <div
-                key={project.title}
-                className="w-full sm:w-[calc(50%-6px)]"
-              >
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block h-full"
+            {SITE_CONFIG.projects.map((project) => {
+              const card = (
+                <Card
+                  className={`h-full overflow-hidden transition-colors duration-150 ease-out will-change-transform hover:bg-accent/50 active:scale-[0.97]${project.image ? " pt-0" : ""}`}
                 >
-                  <Card
-                    className={`h-full overflow-hidden transition-colors duration-150 ease-out will-change-transform hover:bg-accent/50 active:scale-[0.97]${project.image ? " pt-0" : ""}`}
-                  >
-                    {project.image && (
-                      <div className="relative aspect-video border-b">
-                        <Image
-                          src={project.image}
-                          alt={`${project.title} - ${truncateAtWord(project.description, 80)}`}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          loading={project.loading}
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <CardContent className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">{project.title}</p>
+                  {project.image && (
+                    <div className="relative aspect-video border-b">
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} - ${truncateAtWord(project.description, 80)}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        loading={project.loading}
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <CardContent className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-medium">{project.title}</p>
+                      {project.href && (
                         <ArrowUpRight className="size-3.5 text-muted-foreground opacity-0 transition-[transform,opacity] duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
-                      </div>
-                      <p className="text-xs leading-relaxed text-muted-foreground">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="secondary"
-                            className="text-[10px] px-1.5 py-0"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
-              </div>
-            ))}
+                      )}
+                    </div>
+                    <p className="text-xs leading-relaxed text-muted-foreground">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className="text-[10px] px-1.5 py-0"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+
+              return (
+                <div key={project.title} className="w-full sm:w-[calc(50%-6px)]">
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block h-full"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    <div className="h-full">{card}</div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </section>
 
