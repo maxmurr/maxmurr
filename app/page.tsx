@@ -144,9 +144,11 @@ export default async function Home() {
                     {exp.company}
                   </p>
                 )}
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {exp.description}
-                </p>
+                <ul className="mt-1 list-disc space-y-1 pl-4 text-sm leading-relaxed text-muted-foreground marker:text-muted-foreground/50">
+                  {exp.highlights.map((highlight, index) => (
+                    <li key={index}>{highlight}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -154,11 +156,40 @@ export default async function Home() {
 
         <section>
           <h2 className="text-lg font-semibold tracking-tight">Skills</h2>
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {SITE_CONFIG.skills.map((skill) => (
-              <Badge key={skill} variant="secondary">
-                {skill}
-              </Badge>
+          <div className="mt-4 space-y-3">
+            {SITE_CONFIG.skillGroups.map((group) => (
+              <div key={group.label}>
+                <p className="text-xs font-medium text-muted-foreground">
+                  {group.label}
+                </p>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
+                  {group.items.map((skill) => (
+                    <Badge key={skill} variant="secondary">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold tracking-tight">Education</h2>
+          <div className="mt-4 space-y-3">
+            {SITE_CONFIG.education.map((edu) => (
+              <div
+                key={edu.school}
+                className="flex items-baseline justify-between gap-4"
+              >
+                <div>
+                  <h3 className="text-sm font-medium">{edu.degree}</h3>
+                  <p className="text-xs text-muted-foreground">{edu.school}</p>
+                </div>
+                <span className="shrink-0 text-xs font-mono text-muted-foreground">
+                  {edu.period}
+                </span>
+              </div>
             ))}
           </div>
         </section>
