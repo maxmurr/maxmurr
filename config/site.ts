@@ -93,7 +93,21 @@ export const SITE_CONFIG: SiteConfig = {
       href: "https://www.thaipbs.or.th/LocalElection/result",
       image: "https://election68-asset.thaipbs.or.th/app-image/opengraph-image.jpg",
     },
-{
+    {
+      title: "Allianz Ayudhya Agent Portal",
+      description:
+        "Mobile-first agent portal for Allianz Ayudhya — end-to-end type-safe TypeScript with a Next.js front end and tRPC APIs on Fastify, backed by Drizzle, PostgreSQL, and Redis, for sales tracking, charts, and PDF quotation management.",
+      technologies: ["Next.js", "tRPC", "Fastify", "PostgreSQL"],
+      image: "/projects/agent-portal.webp",
+    },
+    {
+      title: "Allianz Ayudhya Sales Dashboard",
+      description:
+        "Self-service sales analytics for Allianz Ayudhya agents — Next.js and tRPC on Fastify with Drizzle and PostgreSQL, Redis-cached metrics refreshed by a scheduled cron, charting commission, goals, and policy trends with CSV/Excel export.",
+      technologies: ["Next.js", "tRPC", "Drizzle", "Recharts"],
+      image: "/projects/sales-dashboard.webp",
+    },
+    {
       title: "Playboard",
       description:
         "Video platform UI with custom domain and subdomain support, enabling faster customer deployments and brand control.",
