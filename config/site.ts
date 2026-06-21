@@ -79,7 +79,7 @@ export const SITE_CONFIG: SiteConfig = {
     {
       title: "Thai PBS Election '69",
       description:
-        "Real-time election results dashboard for Thai PBS across all 77 provinces, handling 200,000+ peak concurrent viewers — built on TanStack Start and React 19 with live result polling, a pinch-zoom province map, and a drag-and-drop coalition builder.",
+        "Real-time election results dashboard for Thai PBS across all 77 provinces, handling 200,000+ peak concurrent viewers. Built on TanStack Start and React 19 with live result polling, a pinch-zoom province map, and a drag-and-drop coalition builder.",
       technologies: ["TanStack Start", "React", "Vite", "Tailwind CSS"],
       href: "https://www.thaipbs.or.th/election69/result",
       image: "/projects/election-69.webp",
@@ -96,14 +96,14 @@ export const SITE_CONFIG: SiteConfig = {
     {
       title: "Allianz Ayudhya Agent Portal",
       description:
-        "Mobile-first agent portal for Allianz Ayudhya — end-to-end type-safe TypeScript with a Next.js front end and tRPC APIs on Fastify, backed by Drizzle, PostgreSQL, and Redis, for sales tracking, charts, and PDF quotation management.",
+        "Mobile-first agent portal for Allianz Ayudhya, built end-to-end in type-safe TypeScript: a Next.js front end and tRPC APIs on Fastify, backed by Drizzle, PostgreSQL, and Redis. Handles sales tracking, charts, and PDF quotations.",
       technologies: ["Next.js", "tRPC", "Fastify", "PostgreSQL"],
       image: "/projects/agent-portal.webp",
     },
     {
       title: "Allianz Ayudhya Sales Dashboard",
       description:
-        "Self-service sales analytics for Allianz Ayudhya agents — Next.js and tRPC on Fastify with Drizzle and PostgreSQL, Redis-cached metrics refreshed by a scheduled cron, charting commission, goals, and policy trends with CSV/Excel export.",
+        "Self-service sales analytics for Allianz Ayudhya agents. Next.js and tRPC on Fastify with Drizzle and PostgreSQL, Redis-cached metrics refreshed by a scheduled cron, charting commission, goals, and policy trends with CSV/Excel export.",
       technologies: ["Next.js", "tRPC", "Drizzle", "Recharts"],
       image: "/projects/sales-dashboard.webp",
     },
@@ -118,7 +118,7 @@ export const SITE_CONFIG: SiteConfig = {
     {
       title: "ByteArk Lighthouse",
       description:
-        "Video streaming analytics platform for ByteArk on a Next.js 15 BFF with tRPC — AI-generated insights via the Vercel AI SDK and Dify, plus D3 and ApexCharts visualizations for engagement, geographic, and genre trends.",
+        "Video streaming analytics platform for ByteArk on a Next.js 15 BFF with tRPC. AI-generated insights via the Vercel AI SDK and Dify, plus D3 and ApexCharts visualizations for engagement, geographic, and genre trends.",
       technologies: ["Next.js", "tRPC", "AI SDK", "D3"],
       image: "/projects/byteark-lighthouse.webp",
     },
