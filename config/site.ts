@@ -116,6 +116,13 @@ export const SITE_CONFIG: SiteConfig = {
       image: "https://www.playboard.cloud/opengraph-image.jpg?01f6125264f19290",
     },
     {
+      title: "ByteArk Lighthouse",
+      description:
+        "Video streaming analytics platform for ByteArk on a Next.js 15 BFF with tRPC — AI-generated insights via the Vercel AI SDK and Dify, plus D3 and ApexCharts visualizations for engagement, geographic, and genre trends.",
+      technologies: ["Next.js", "tRPC", "AI SDK", "D3"],
+      image: "/projects/byteark-lighthouse.webp",
+    },
+    {
       title: "byteark-player-angular",
       description:
         "Angular video player library built on Video.js for ByteArk, expanding streaming partner compatibility and market reach.",
