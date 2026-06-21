@@ -15,6 +15,7 @@ export interface Project {
   technologies: string[]
   href?: string
   image?: string
+  loading?: "eager" | "lazy"
 }
 
 export interface Experience {
@@ -74,6 +75,15 @@ export const SITE_CONFIG: SiteConfig = {
       technologies: ["React", "TypeScript"],
       href: "https://react-grep.com",
       image: "https://react-grep.com/opengraph-image?bfafbd62df035060",
+    },
+    {
+      title: "Thai PBS Election '69",
+      description:
+        "Real-time election results dashboard for Thai PBS across all 77 provinces, handling 200,000+ peak concurrent viewers — built on TanStack Start and React 19 with live result polling, a pinch-zoom province map, and a drag-and-drop coalition builder.",
+      technologies: ["TanStack Start", "React", "Vite", "Tailwind CSS"],
+      href: "https://www.thaipbs.or.th/election69/result",
+      image: "/projects/election-69.webp",
+      loading: "eager",
     },
     {
       title: "Thai PBS Election '68",

@@ -143,6 +143,7 @@ export default async function Home() {
                           alt={`${project.title} - ${truncateAtWord(project.description, 80)}`}
                           fill
                           sizes="(max-width: 640px) 100vw, 50vw"
+                          loading={project.loading}
                           className="object-cover"
                         />
                       </div>
